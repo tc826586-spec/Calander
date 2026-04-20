@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-headline: "Playfair Display", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #D94E33; /* Terra Cotta */
+  --color-on-primary: #ffffff;
+  --color-ink: #1A1A1A;
+  --color-surface: #F2F0ED; /* Warm Grey */
+  --color-surface-container: #E5E1DA; /* Border Grey */
+  --color-surface-container-low: #F2F0ED;
+  --color-surface-container-lowest: #F2F0ED;
+  --color-on-surface: #1A1A1A;
+  --color-on-surface-variant: rgba(26, 26, 26, 0.6);
+
+  /* Seasonal Base Colors */
+  --color-season-spring-bg: #F2EDF0; /* Soft Blossom */
+  --color-season-spring-border: #E5DAE1;
+  --color-season-summer-bg: #F0F2ED; /* Warm Sage */
+  --color-season-summer-border: #DAE5E1;
+  --color-season-autumn-bg: #F2F0ED; /* Original Warm Grey */
+  --color-season-autumn-border: #E5E1DA;
+  --color-season-winter-bg: #EDF0F2; /* Frosted Slate */
+  --color-season-winter-border: #DAE1E5;
+
+  /* Seasonal Primary Accents */
+  --color-season-spring-primary: #5A8F5C; /* Garden Green */
+  --color-season-summer-primary: #D9A333; /* Golden Ochre */
+  --color-season-autumn-primary: #D94E33; /* Original Terra Cotta */
+  --color-season-winter-primary: #4E7DA6; /* Nordic Blue */
+
+  --radius-full: 9999px;
+  --radius-xl: 0px; /* More architectural/sharp edges */
+}
+
+@layer utilities {
+  .bg-spring-design {
+    background: radial-gradient(circle at 10% 10%, rgba(90, 143, 92, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(229, 218, 225, 0.2) 0%, transparent 40%);
+  }
+  .bg-summer-design {
+    background: radial-gradient(circle at 50% 0%, rgba(217, 163, 51, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(218, 229, 225, 0.2) 0%, transparent 40%);
+  }
+  .bg-autumn-design {
+    background: radial-gradient(circle at 100% 100%, rgba(217, 78, 51, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 20%, rgba(229, 225, 218, 0.2) 0%, transparent 40%);
+  }
+  .bg-winter-design {
+    background: radial-gradient(circle at 0% 100%, rgba(78, 125, 166, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(218, 225, 229, 0.2) 0%, transparent 60%);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-ink font-sans;
+  }
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.serif {
+  @apply font-serif;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
